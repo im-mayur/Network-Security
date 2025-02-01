@@ -1,0 +1,17 @@
+Metadata-Version: 2.2
+Name: Network-Security
+Version: 0.0.0.1
+Summary: This is an end to end ml project for network security
+Author: Mayur Kulkarni
+Author-email: mayurkulkarni5113@gmail.com
+Requires-Dist: python-dotenv
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: pymango
+Requires-Dist: certifi
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
+Dynamic: summary

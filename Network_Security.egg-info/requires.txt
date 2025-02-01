@@ -1,10 +1,7 @@
 python-dotenv
 pandas
 numpy
-matplotlib 
+matplotlib
 seaborn
 pymango
 certifi
-
-#refer to setup.py
-#-e .
