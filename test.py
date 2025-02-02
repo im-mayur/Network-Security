@@ -1,11 +1,9 @@
-# Open the file in read mode
-with open('requirements.txt', 'r') as file:
-    lines=file.readlines()
-    requirement_lst=[]
-    for line in lines:
-        # Print each line
-        requirement=line.strip()
-        requirement_lst.append(requirement)
-       
+import datetime
+import os
+import logging
 
-    print(requirement_lst)
+x=datetime.datetime.now()
+print(x.strftime("%a_%b_%Y_%H_%M_%S"))
+log_file=f'{x.strftime("%a_%b_%Y_%H_%M_%S")}.log'
+print(log_file)
+
