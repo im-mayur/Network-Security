@@ -4,6 +4,7 @@ numpy
 matplotlib 
 seaborn
 pymango
+pymongo[srv]==3.6
 certifi
 
 #refer to setup.py
