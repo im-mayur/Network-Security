@@ -1,6 +1,6 @@
 
 from pymongo.mongo_client import MongoClient
-from collections.abc import Mapping
+
 
 uri = "mongodb+srv://<username>:<password>@cluster0.ket73.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
