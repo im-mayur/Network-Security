@@ -1,3 +1,17 @@
+'''
+This program tests if MongoDB is connecting with program successsfully.
+
+--> First complete the signup for mongoDB if you dont have account already. 
+--> Crete a cluster for this project. 
+--> Set your username and password, this can be done by clicking on "Quickstart" on home page.
+--> Ensure you have 'pymongo' installed.
+
+Note:If you encounter error while connecting, consider upgrading 'pymongo' as some functionality maybe deprecated 
+     in python version 3.10 and above.
+     pip install --upgrade pymongo
+'''
+
+
 
 from pymongo.mongo_client import MongoClient
 

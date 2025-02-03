@@ -1,3 +1,16 @@
+'''
+This is ETL pipeline.
+
+--> Data is extracted from 'phisingData.csv' in 'Network_Data' folder.
+--> Then Data in csv format is converted to json format.
+--> This data is then pushed to mondoDB database.
+
+Note: If you encounter [Server connection timed out error] while pushing the data to mongoDB database,
+      consider checking if 'current ip' is added to cluster. 
+      (Go to mongo atlas homepage--> select cluster--> Network access--> Add current ip)
+'''
+
+
 import os
 import json
 import sys
@@ -20,6 +33,9 @@ MONGO_DB_URL=os.getenv("MONGO_DB_URL")
 # print(MONGO_DB_URL)
 
 class NetworkDataExtractor():
+    '''
+    This class implements ETL pipeline to extract, transform and load the data.
+    '''
     def __init__(self):
         try:
             pass
@@ -27,6 +43,12 @@ class NetworkDataExtractor():
             raise NetworkSecurityException(e,sys)
         
     def csv_to_json_converter(self,filepath):
+        '''
+        This function converts csv data to json format.
+
+        parameters:
+        filepath:path of the csv dataset file.(str)
+        '''
         try:
             data=pd.read_csv(filepath)
             data.reset_index(drop=True, inplace=True)
@@ -41,6 +63,14 @@ class NetworkDataExtractor():
             raise NetworkSecurityException(e,sys)
         
     def insert_data_to_mongodb(self,records,collection,database):
+        '''
+        Push the json data to mongoDB database.
+
+        Parameter:
+        records:json data(nested list)
+        collection:Name of the collection (table) to be created(str)
+        database: Name of the database to br created(str)
+        '''
         try:
             self.records=records
             self.collection=collection
