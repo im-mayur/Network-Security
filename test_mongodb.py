@@ -16,7 +16,8 @@ Note:If you encounter error while connecting, consider upgrading 'pymongo' as so
 from pymongo.mongo_client import MongoClient
 
 
-uri = "mongodb+srv://<username>:<password>@cluster0.ket73.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+# uri = "mongodb+srv://<username>:<password>@cluster0.ket73.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+uri="mongodb+srv://mayurkulkarni5113:admin123@cluster0.ket73.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 # Create a new client and connect to the server
 client = MongoClient(uri)

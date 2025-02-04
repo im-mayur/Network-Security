@@ -1,18 +1,10 @@
-import datetime
-import os
-import logging
-import json
-
-import pandas as pd
-from networksecurity.logging.logger import logging
+from networksecurity.components.data_injestion import DataIngestion
+from networksecurity.components.data_validation import DataValidation
 from networksecurity.exception.exception import NetworkSecurityException
+from networksecurity.logging.logger import logging
+from networksecurity.entity.config_entity import DataInjestionConfig,DataValidationConfig
+from networksecurity.constant import training_pipeline  
+from networksecurity.entity.config_entity import TrainingPipelineConfig
+import sys
 
-data=pd.read_csv('Network_Data/phisingData.csv')
 
-data.reset_index(drop=True, inplace=True)
-
-new_data=data.head(2)
-
-print(list(json.loads(data.T.to_json()).values()))
-# records=data.to_json()
-# print(records)

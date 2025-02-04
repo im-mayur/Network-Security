@@ -33,12 +33,15 @@ class DataIngestion:
             collection=self.data_ingestion_config.collection_name
 
             # make the connection to mongoDB 
-            self.mongo_client=pymongo.MongoClient(MONGO_DB_URL, serverSelectionTimeoutMS=10000)
+            print("making connection with mongo")
+            self.mongo_client=pymongo.MongoClient(MONGO_DB_URL)
 
             # get collection
+            print("getting collection")
             collection=self.mongo_client[database][collection]
 
             # read the collection as pandas dataframe 
+            print("reading the collection as dataframe ")
             df=pd.DataFrame(list(collection.find()))
 
             # remove the default '_id' column
@@ -97,6 +100,7 @@ class DataIngestion:
         
     def initiate_data_ingestion(self):
         try:
+            print("started_initiate data_ingestion")
             # call the 'export_collection_as_dataframe' to get pd dataframe
             dataframe=self.export_collection_as_dataframe()
 
@@ -106,10 +110,12 @@ class DataIngestion:
             # export tarin and test data to 'injested folder'
             self.split_data_as_train_test(dataframe)
 
-            data_ingestion_artifact=DataIngestionArtifact(train_file_path=self.data_ingestion_config.training_file_path,
+            print("completed data ingestion")
+
+            return DataIngestionArtifact(train_file_path=self.data_ingestion_config.training_file_path,
                                                           test_file_path=self.data_ingestion_config.testing_file_path)
             
-            return data_ingestion_artifact
+            
 
         except Exception as e:
             raise NetworkSecurityException(e,sys)
