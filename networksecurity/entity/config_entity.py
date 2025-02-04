@@ -6,7 +6,7 @@ from networksecurity.constant import training_pipeline
 
 class TrainingPipelineConfig:
     def __init__(self,timestamp=datetime.now()):
-        timestamp=timestamp.strftime("%m_%d_%Y_%H_%M_%S")
+        timestamp=timestamp.strftime("%m_%d_%Y")
         self.pipeline_name=training_pipeline.PIPELINE_NAME
         self.artifacts_name=training_pipeline.ARTIFACTS_DIR
 
@@ -36,7 +36,7 @@ class DataInjestionConfig:
         # create 'injested' folder inside 'data_injestion'
         # create 'test.csv' inside 'injested'
         self.testing_file_path:str=os.path.join(self.data_injestion_dir,
-                                                training_pipeline.DATA_INJESTION_DIR_NAME,training_pipeline.TEST_FILE_NAME)
+                                                training_pipeline.DATA_INJESTION_INJESTED_DIR,training_pipeline.TEST_FILE_NAME)
 
         self.train_test_split_ratio:float=training_pipeline.DATA_INJESTION_TRAIN_TEST_SPLIT_RATION
         self.collection_name:str=training_pipeline.DATA_INJESTION_COLLECTION_NAME

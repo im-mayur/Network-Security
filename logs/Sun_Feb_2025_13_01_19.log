@@ -1,2 +1,0 @@
-[2025-02-02 13:01:19,255 ] 27 root INFO entered the try block
-[2025-02-02 13:01:19,255 ] 14 root ERROR Error occurred in python script name [/home/mayur/Network Security/networksecurity/exception/exception.py] at line number [28] error message [division by zero]
