@@ -7,7 +7,7 @@ import pandas as pd
 Defining common constatnt variable for training pipeline
 '''
 
-TRAGET_COLUMN="Result"
+TARGET_COLUMN="Result"
 PIPELINE_NAME: str="NetworkSecurity"
 ARTIFACTS_DIR: str="Artifacts"
 FILE_NAME: str="PhisingData.csv"
@@ -41,3 +41,19 @@ DATA_VALIDATION_VALID_DIR: str="validated"
 DATA_VALIDATION_INVALID_DIR: str="invalid"
 DATA_VALIDATION_DRIFT_REPORT_DIR: str="drift_report"
 DATA_VALIDATION_DRIFT_REPORT_FILENAME: str="report.yaml"
+
+
+'''
+Data Transformation related constants starts with DATA_TRANSFORMATION_VAR
+'''
+
+DATA_TRANSFORMATION_DIR_NAME: str="data_transformation"
+DATA_TRANSFORMATION_TRANSFORMED_DIR: str ="transformed"
+DATA_TRANSFORMATION_PREPROCESSOR_DIR: str="transformed_object"
+PREPROCESSOR_OBJ_FILE_NAME: str="preprocessing.pkl"
+
+DATA_TRANSFORMATION_IMPUTER_PARAMS: dict={
+    "missing_values":np.nan,
+    "n_neighbors":3,
+    "weights":"uniform",
+}

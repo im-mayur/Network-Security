@@ -68,6 +68,25 @@ class DataValidationConfig:
         self.drift_report_file_path:str=os.path.join(self.data_validation_dir,
                                                      training_pipeline.DATA_VALIDATION_DRIFT_REPORT_DIR,
                                                      training_pipeline.DATA_VALIDATION_DRIFT_REPORT_FILENAME)
-
         
 
+
+class  DataTransformationConfig:
+    def __init__(self,training_pipeline_config:TrainingPipelineConfig):
+        # create 'data_transformation' folder in 'Artifacts'
+        self.data_transformation_dir: str=os.path.join(training_pipeline_config.artifacts_dir,training_pipeline.DATA_TRANSFORMATION_DIR_NAME)
+
+        # create 'tranformed' folder inside 'data_transformation'
+        # create 'train.npy' inside 'transformed'
+        self.transformed_train_file_path: str=os.path.join(self.data_transformation_dir, training_pipeline.DATA_TRANSFORMATION_TRANSFORMED_DIR,
+                                                      training_pipeline.TRAIN_FILE_NAME.replace('csv','npy'))
+        
+        # create 'tranformed' folder inside 'data_transformation'
+        # create 'train.npy' inside 'transformed'
+        self.transformed_test_file_path: str=os.path.join(self.data_transformation_dir, training_pipeline.DATA_TRANSFORMATION_TRANSFORMED_DIR,
+                                                      training_pipeline.TEST_FILE_NAME.replace('csv','npy'))
+        
+        # create 'transformed_object' folder inside 'data_transformation'
+        # create 'preprocessing.pkl' inside 'transformed_object'
+        self.preproceesor_file_path: str=os.path.join(self.data_transformation_dir,training_pipeline.DATA_TRANSFORMATION_PREPROCESSOR_DIR,
+                                                      training_pipeline.PREPROCESSOR_OBJ_FILE_NAME)
