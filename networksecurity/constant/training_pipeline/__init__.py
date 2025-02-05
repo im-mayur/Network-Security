@@ -17,6 +17,9 @@ TEST_FILE_NAME: str="test.csv"
 
 SCHEMA_FILE_PATH: str=os.path.join("data_schema","schema.yaml")
 
+SAVED_MODEL_DIR: str =os.path.join("saved_models")
+MODEL_FILE_NAME: str="model.pkl"
+
 
 
 
@@ -44,7 +47,7 @@ DATA_VALIDATION_DRIFT_REPORT_FILENAME: str="report.yaml"
 
 
 '''
-Data Transformation related constants starts with DATA_TRANSFORMATION_VAR
+Data Transformation related constants start with DATA_TRANSFORMATION_VAR
 '''
 
 DATA_TRANSFORMATION_DIR_NAME: str="data_transformation"
@@ -57,3 +60,14 @@ DATA_TRANSFORMATION_IMPUTER_PARAMS: dict={
     "n_neighbors":3,
     "weights":"uniform",
 }
+
+
+'''
+Model Trainer related constants start with  MODEL_TRAINER_VAR
+'''
+
+MODEL_TRAINER_DIR: str="Modeel_trainer"
+MODEL_TRAINER_TRAINED_MODEL_DIR: str="trained_model" 
+MODEL_TRAINER_TRAINED_MODEL_NAME: str="model.pkl"
+MODEL_TRAINER_EXPECTED_SCORE: float=0.6
+MODEL_TRAINER_THRESHOULD: float=0.05

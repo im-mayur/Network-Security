@@ -90,3 +90,20 @@ class  DataTransformationConfig:
         # create 'preprocessing.pkl' inside 'transformed_object'
         self.preproceesor_file_path: str=os.path.join(self.data_transformation_dir,training_pipeline.DATA_TRANSFORMATION_PREPROCESSOR_DIR,
                                                       training_pipeline.PREPROCESSOR_OBJ_FILE_NAME)
+        
+
+
+
+class ModelTrainerConfig:
+    def __init__(self,training_pipeline_config:TrainingPipelineConfig,):
+        # create 'Model_Trainer' folder inside 'Artifact'
+        self.model_trainer_dir=os.path.join(training_pipeline_config.artifacts_dir,training_pipeline.MODEL_TRAINER_DIR)
+
+        # create 'trained_model' folder inside 'Model_Trainer'
+        self.trained_model_dir=os.path.join(self.model_trainer_dir,training_pipeline.MODEL_TRAINER_TRAINED_MODEL_DIR)
+
+        # create 'model.pkl' inside 'trained_model'
+        self.trained_model_path=os.path.join(self.trained_model_path,training_pipeline.MODEL_TRAINER_TRAINED_MODEL_NAME)
+
+        self.expected_accuracy=training_pipeline.MODEL_TRAINER_EXPECTED_SCORE
+        self.fitting_threshould=training_pipeline.MODEL_TRAINER_THRESHOULD
