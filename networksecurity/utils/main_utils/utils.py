@@ -1,5 +1,7 @@
 from networksecurity.exception.exception import NetworkSecurityException
 from networksecurity.logging.logger import logging
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import r2_score
 
 import yaml
 import os,sys
@@ -48,7 +50,7 @@ def save_pickle(filepath:str, obj:object):
         raise NetworkSecurityException(e, sys)
     
 
-def load_object(filepath:str, obj:object):
+def load_object(filepath:str):
     try:
         with open(filepath, 'rb') as file_obj:
             return pickle.load(file_obj)
@@ -59,6 +61,40 @@ def load_np_array(filepath:str):
     try:
         with open(filepath, 'rb') as file_obj:
             return np.load(file_obj)
+    except Exception as e:
+        raise NetworkSecurityException(e, sys)
+    
+
+def evaluate_model(X_train,y_train,X_test,y_test,models,params)->dict:
+    try:
+        report={}
+        
+        for i in list(models.keys()):
+            model=models[i]
+            param=params[i]
+
+            grid=GridSearchCV(estimator=model,
+                              param_grid=param,cv=3)
+            print("Tunning the model",str(model))
+            logging.info(f"Tuning the model: {model}")
+            grid.fit(X_train,y_train)
+
+            model.fit(X_train,y_train)
+            model.set_params(**grid.best_params_)
+           
+
+            y_train_pred=model.predict(X_train)
+            y_test_pred=model.predict(X_test)
+
+            test_model_score=r2_score(y_true=y_test,y_pred=y_test_pred)
+
+            report[i]={"test_model_score":test_model_score,
+                                            "best_params":grid.best_params_}
+            
+
+        return report
+        
+
     except Exception as e:
         raise NetworkSecurityException(e, sys)
     

@@ -66,7 +66,7 @@ DATA_TRANSFORMATION_IMPUTER_PARAMS: dict={
 Model Trainer related constants start with  MODEL_TRAINER_VAR
 '''
 
-MODEL_TRAINER_DIR: str="Modeel_trainer"
+MODEL_TRAINER_DIR: str="Model_trainer"
 MODEL_TRAINER_TRAINED_MODEL_DIR: str="trained_model" 
 MODEL_TRAINER_TRAINED_MODEL_NAME: str="model.pkl"
 MODEL_TRAINER_EXPECTED_SCORE: float=0.6

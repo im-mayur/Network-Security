@@ -95,7 +95,7 @@ class  DataTransformationConfig:
 
 
 class ModelTrainerConfig:
-    def __init__(self,training_pipeline_config:TrainingPipelineConfig,):
+    def __init__(self,training_pipeline_config:TrainingPipelineConfig):
         # create 'Model_Trainer' folder inside 'Artifact'
         self.model_trainer_dir=os.path.join(training_pipeline_config.artifacts_dir,training_pipeline.MODEL_TRAINER_DIR)
 
@@ -103,7 +103,7 @@ class ModelTrainerConfig:
         self.trained_model_dir=os.path.join(self.model_trainer_dir,training_pipeline.MODEL_TRAINER_TRAINED_MODEL_DIR)
 
         # create 'model.pkl' inside 'trained_model'
-        self.trained_model_path=os.path.join(self.trained_model_path,training_pipeline.MODEL_TRAINER_TRAINED_MODEL_NAME)
+        self.trained_model_path=os.path.join(self.trained_model_dir,training_pipeline.MODEL_TRAINER_TRAINED_MODEL_NAME)
 
         self.expected_accuracy=training_pipeline.MODEL_TRAINER_EXPECTED_SCORE
         self.fitting_threshould=training_pipeline.MODEL_TRAINER_THRESHOULD
