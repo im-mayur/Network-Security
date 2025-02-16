@@ -1,0 +1,16 @@
+artifact_uri: file:///home/mayur/Network%20Security/mlruns/0/60d0872eacd54ec0a6222e861026a33c/artifacts
+deleted_time: 1739607352073
+end_time: 1739606899647
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 60d0872eacd54ec0a6222e861026a33c
+run_name: legendary-skunk-761
+run_uuid: 60d0872eacd54ec0a6222e861026a33c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739606899639
+status: 4
+tags: []
+user_id: mayur

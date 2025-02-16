@@ -1,0 +1,15 @@
+artifact_uri: file:///home/mayur/Network%20Security/mlruns/0/0098ac0ee64046269766c6b98d5cfe84/artifacts
+end_time: 1739607115562
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 0098ac0ee64046269766c6b98d5cfe84
+run_name: valuable-donkey-140
+run_uuid: 0098ac0ee64046269766c6b98d5cfe84
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739607113692
+status: 3
+tags: []
+user_id: mayur

@@ -67,6 +67,10 @@ def load_np_array(filepath:str):
 
 def evaluate_model(X_train,y_train,X_test,y_test,models,params)->dict:
     try:
+        '''
+        This function iterates over the "models and tunes them with GridSearchCV.
+        returns the "report":dict
+        "'''
         report={}
         
         for i in list(models.keys()):

@@ -1,0 +1,16 @@
+artifact_uri: file:///home/mayur/Network%20Security/mlruns/0/6158ccdba01346a38b0236a82959ef28/artifacts
+deleted_time: 1739607352074
+end_time: 1739606386905
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 6158ccdba01346a38b0236a82959ef28
+run_name: sedate-ape-37
+run_uuid: 6158ccdba01346a38b0236a82959ef28
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739606386898
+status: 4
+tags: []
+user_id: mayur

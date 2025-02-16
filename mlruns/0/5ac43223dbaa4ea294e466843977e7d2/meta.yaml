@@ -1,0 +1,15 @@
+artifact_uri: file:///home/mayur/Network%20Security/mlruns/0/5ac43223dbaa4ea294e466843977e7d2/artifacts
+end_time: 1739608495932
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5ac43223dbaa4ea294e466843977e7d2
+run_name: sassy-conch-588
+run_uuid: 5ac43223dbaa4ea294e466843977e7d2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739608494066
+status: 3
+tags: []
+user_id: mayur

@@ -1,0 +1,16 @@
+artifact_uri: file:///home/mayur/Network%20Security/mlruns/0/920d3a9a1c324f2e9aadb2e653d7c482/artifacts
+deleted_time: 1739607352074
+end_time: 1739606221298
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 920d3a9a1c324f2e9aadb2e653d7c482
+run_name: inquisitive-gnu-92
+run_uuid: 920d3a9a1c324f2e9aadb2e653d7c482
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739606221293
+status: 4
+tags: []
+user_id: mayur

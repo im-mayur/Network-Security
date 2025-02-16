@@ -9,6 +9,7 @@ certifi
 scikit-learn
 dill
 pyyaml
+mlflow
 
 #refer to setup.py
 #-e .
