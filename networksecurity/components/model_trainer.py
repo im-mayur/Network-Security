@@ -18,7 +18,8 @@ from typing import Literal
 import numpy as np
 import pandas as pd
 import mlflow
-
+import dagshub
+dagshub.init(repo_owner='im-mayur', repo_name='Network-Security', mlflow=True)
 
 class ModelTrainer:
     '''
@@ -92,7 +93,7 @@ class ModelTrainer:
                 'loss':['log_loss', 'exponential'],
                 'learning_rate':[.1,.01,.05,.001],
                 # 'subsample':[0.6,0.7,0.75,0.85,0.9],
-                'criterion':['squared_error', 'friedman_mse'],
+                # 'criterion':['squared_error', 'friedman_mse'],
                 'max_features':['auto','sqrt','log2'],
                 # 'n_estimators': [8,16,32,64,128,256]
             },
@@ -101,7 +102,7 @@ class ModelTrainer:
             },
             "AdaBoost Classifier":{
                 'learning_rate':[.1,.01,.001],
-                'n_estimators': [8,16,32,64,128,256]
+                'n_estimators': [8,16,32,64]
             },
             "KneighborClassifier":{
                 "n_neighbors":[3,5,7],
@@ -169,6 +170,8 @@ class ModelTrainer:
         # and save it as 'model.pkl'
         Network_Model= NetworkModel(preprocessor,best_model)
         save_pickle(filepath=self.model_trainer_config.trained_model_path,obj=Network_Model)
+
+        save_pickle("final_model/model.pkl",best_model)
 
         #model trainer artifact
         return ModelTrainerArtifact(

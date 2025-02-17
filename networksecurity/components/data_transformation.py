@@ -13,7 +13,7 @@ import pandas as pd
 from sklearn.impute import KNNImputer
 from sklearn.pipeline import Pipeline
 
-class DataTransforrmation:
+class DataTransformation:
     def __init__(self,data_validation_artifact:DataValidationArtifact,
                  data_transformation_config:DataTransformationConfig):
         try:
@@ -50,8 +50,8 @@ class DataTransforrmation:
             logging.info("Initiated data transformation")
 
             # read the tarain and test data as pandas dataframne
-            train_df=DataTransforrmation.read_data(self.data_validation_artifact.valid_train_file_path)
-            test_df=DataTransforrmation.read_data(self.data_validation_artifact.valid_test_file_path)
+            train_df=DataTransformation.read_data(self.data_validation_artifact.valid_train_file_path)
+            test_df=DataTransformation.read_data(self.data_validation_artifact.valid_test_file_path)
 
             # remove target column
             train_feature_df=train_df.drop(columns=[TARGET_COLUMN],axis=1)
@@ -87,6 +87,8 @@ class DataTransforrmation:
             save_pickle(self.data_transformation_config.preproceesor_file_path,preprocessor_obj)
             print("saved the preprocessor object as .pkl file")
             logging.info("saved the preprocessor object as .pkl file")
+
+            save_pickle("final_model/preprocessor.pkl",preprocessor_obj)
 
             # prepare DataTransformationArtifact
             print("prepared DataTransformationArtifact")
