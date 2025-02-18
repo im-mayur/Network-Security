@@ -8,6 +8,7 @@ import pymongo
 from networksecurity.exception.exception import NetworkSecurityException
 from networksecurity.logging.logger import logging
 from networksecurity.pipeline.training_pipeline import TrainingPipeline
+from networksecurity.utils.ml_utils.model.estimator import NetworkModel
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -21,6 +22,10 @@ from uvicorn import run as app_run
 from fastapi.responses import Response
 from starlette.responses import RedirectResponse
 import pandas as pd 
+
+
+from fastapi.templating import Jinja2Templates
+templates=Jinja2Templates(directory="./templates")
 
 from networksecurity.utils.main_utils.utils import load_object
 
@@ -55,8 +60,29 @@ async def train_route():
     except Exception as e:
         raise NetworkSecurityException(e,sys)
     
+@app.post("/predict")
+async def predict_route(request:Request,file:UploadFile=File(...)):
+    try:
+        df=pd.read_csv(file.file)
+        preprocessor=load_object("final_model/preprocessor.pkl")
+        model=load_object("final_model/model.pkl")
+        networkmodel=NetworkModel(preprocessor=preprocessor,model=model)
+        print(df.iloc[0])
+        y_pred=networkmodel.predict(df)
+        print(y_pred)
+
+        df["Predicted_column"]=y_pred
+        # df["Predicted_column"].replace(-1,0)
+
+        df.to_csv("templates/valid_data/predicted.csv")
+        table_html=df.to_html(classes='table table-striped')
+        print(table_html)
+
+        return templates.TemplateResponse("table.html", {"request":request, "table":table_html})
 
 
+    except Exception as e:
+        raise NetworkSecurityException(e,sys)
 
 
 
