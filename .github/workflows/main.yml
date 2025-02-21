@@ -87,9 +87,13 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
       
       
+      # - name: Pull latest images
+      #   run: |
+      #    docker pull ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
+
       - name: Pull latest images
         run: |
-         docker pull ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
+         docker pull 463470952891.dkr.ecr.ap-southeast-2.amazonaws.com/networksecurity:latest
          
       #- name: Stop and remove  container if running
        # run: |
