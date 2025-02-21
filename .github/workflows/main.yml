@@ -100,14 +100,18 @@ jobs:
           sudo apt-get clean
           sudo journalctl --vacuum-time=1d
 
+      - name: Stop and Remove Running Container (if exists)
+        run: |
+          docker ps -q --filter "name=networksecurity" | grep -q . && docker stop networksecurity && docker rm -fv networksecurity || echo "No existing container to remove"
+
 
       - name: Pull latest images
         run: |
          docker pull 463470952891.dkr.ecr.ap-southeast-2.amazonaws.com/networksecurity:latest
          
-      - name: Stop and remove  container if running
-        run: |
-          docker ps -q --filter "name=networksecurity" | grep -q . && docker stop networksecurity && docker rm -fv networksecurity
+      # - name: Stop and remove  container if running
+      #   run: |
+      #     docker ps -q --filter "name=networksecurity" | grep -q . && docker stop networksecurity && docker rm -fv networksecurity
        
       - name: Run Docker Image to serve users
         run: |
