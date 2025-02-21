@@ -91,6 +91,16 @@ jobs:
       #   run: |
       #    docker pull ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
 
+      - name: Free Up Disk Space Before Deployment
+        run: |
+          echo "Cleaning up unused Docker resources..."
+          docker system prune -a -f --volumes
+          echo "Removing unused logs and freeing up space..."
+          sudo rm -rf /var/lib/apt/lists/*
+          sudo apt-get clean
+          sudo journalctl --vacuum-time=1d
+
+
       - name: Pull latest images
         run: |
          docker pull 463470952891.dkr.ecr.ap-southeast-2.amazonaws.com/networksecurity:latest
